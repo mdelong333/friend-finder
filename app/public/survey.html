@@ -6,16 +6,143 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../css/reset.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
     <link rel="stylesheet" href="../css/style.css">
-    <title>Survey</title>
+    <title>Friend Finder</title>
 </head>
 <body>
     <div class="container">
-        <div>Survey</div>
+        <div>
+            <h1>Survey Questions</h1>
+            <hr>
+            <h3>About You</h3>
+            <h4>Name (Required)</h4>
+            <input type="text" id="name" class="form-control" required>
+            <h4>Link to photo image (Required)</h4>
+            <input type="text" id="photo" class="form-control" required>
+            <h3>Rate the following activites on a scale of 1-5</h3>
+            <h5>(1 being something you're very interested in, 5 being something you have no interest in)</h5>
+
+            <h3>Question 1</h3>
+            <h4>Hiking/Camping/Climbing</h4>
+            <select class="chosen-select" id="q1">
+                <option value></option>
+                <option value="1">1 (Very Interested)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (No interest)</option>
+            </select>
+
+            <h3>Question 2</h3>
+            <h4>Film</h4>
+            <select class="chosen-select" id="q2">
+                <option value></option>
+                <option value="1">1 (Very Interested)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (No interest)</option>
+            </select>
+
+            <h3>Question 3</h3>
+            <h4>Dancing/Clubs</h4>
+            <select class="chosen-select" id="q3">
+                <option value></option>
+                <option value="1">1 (Very Interested)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (No interest)</option>
+            </select>
+
+            <h3>Question 4</h3>
+            <h4>Concerts/Festivals</h4>
+            <select class="chosen-select" id="q4">
+                <option value></option>
+                <option value="1">1 (Very Interested)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (No interest)</option>
+            </select>
+
+            <h3>Question 5</h3>
+            <h4>Museums</h4>
+            <select class="chosen-select" id="q5">
+                <option value></option>
+                <option value="1">1 (Very Interested)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (No interest)</option>
+            </select>
+
+            <h3>Question 6</h3>
+            <h4>Theater/Musicals</h4>
+            <select class="chosen-select" id="q6">
+                <option value></option>
+                <option value="1">1 (Very Interested)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (No interest)</option>
+            </select>
+
+            <h3>Question 7</h3>
+            <h4>Trying new restaurants and different types of food</h4>
+            <select class="chosen-select" id="q7">
+                <option value></option>
+                <option value="1">1 (Very Interested)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (No interest)</option>
+            </select>
+
+            <h3>Question 8</h3>
+            <h4>Cooking</h4>
+            <select class="chosen-select" id="q8">
+                <option value></option>
+                <option value="1">1 (Very Interested)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (No interest)</option>
+            </select>
+
+            <h3>Question 9</h3>
+            <h4>Crafts/Making Art</h4>
+            <select class="chosen-select" id="q9">
+                <option value></option>
+                <option value="1">1 (Very Interested)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (No interest)</option>
+            </select>
+
+            <h3>Question 10</h3>
+            <h4>Working Out</h4>
+            <select class="chosen-select" id="q10">
+                <option value></option>
+                <option value="1">1 (Very Interested)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (No interest)</option>
+            </select>
+
+            <br>
+            <br>
+            
+            <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i>Submit</button>
+        </div>
 
         <footer class="footer">
             <div class="container">
@@ -26,11 +153,30 @@
         </footer>
     </div>
 
+    <div id="results-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+    
+            <!-- Modal content-->
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h2 class="modal-title"><strong>Best Match</strong></h2>
+            </div>
+            <div class="modal-body">
+                <h2 id="match-name"></h2>
+                <img id="match-img" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+            </div>
+    
+        </div>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
     crossorigin="anonymous"></script>
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 
 </html>

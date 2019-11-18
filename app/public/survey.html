@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
     <link rel="stylesheet" href="../css/style.css">
@@ -50,7 +49,7 @@
                 <option value="5">5 (No interest)</option>
             </select>
 
-            <h3>Question 3</h3>
+            <!-- <h3>Question 3</h3>
             <h4>Dancing/Clubs</h4>
             <select class="chosen-select" id="q3">
                 <option value></option>
@@ -128,7 +127,7 @@
             </select>
 
             <h3>Question 10</h3>
-            <h4>Working Out</h4>
+            <h4>Fitness Classes</h4>
             <select class="chosen-select" id="q10">
                 <option value></option>
                 <option value="1">1 (Very Interested)</option>
@@ -136,12 +135,12 @@
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5 (No interest)</option>
-            </select>
+            </select> -->
 
             <br>
             <br>
             
-            <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i>Submit</button>
+            <button type="submit" class="btn btn-primary btn-lg btn-block submit"><i class="fa fa-check-circle" aria-hidden="true"></i>Submit</button>
         </div>
 
         <footer class="footer">
@@ -177,6 +176,36 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
     crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+    
+        $(".submit").on("click", function(event) {
+            event.preventDefault();
+
+            var newFriend = {
+                name: $("#name").val().trim(),
+                photoLink: $("#photo").val().trim(),
+                ratings: [
+                    $("#q1").val(),
+                    $("#q2").val(),
+                    // $("#q3").val(),
+                    // $("#q4").val(),
+                    // $("#q5").val(),
+                    // $("#q6").val(),
+                    // $("#q7").val(),
+                    // $("#q8").val(),
+                    // $("#q9").val(),
+                    // $("#q10").val()
+                ]
+            };
+
+            $.post("/api/friends", newFriend)
+            .then(function(data) {
+                console.log("survey.html", data);
+            });
+        });
+
+    </script>
 </body>
 
 </html>

@@ -14,6 +14,22 @@ var friendsArray = [
             // 3,
             // 5
         ],
+    },
+    {
+        name: "Anna",
+        imageLink: "https://media.tenor.com/images/05de333b038141f6b8208c7ce8f8613c/tenor.gif",
+        ratings: [
+            5,
+            5,
+            // 3,
+            // 1,
+            // 5,
+            // 4,
+            // 1,
+            // 1,
+            // 2,
+            // 3
+        ],
     }
 ];
 

@@ -18,18 +18,27 @@ module.exports = function(app) {
         var newFriendData = {
             name: req.body.name,
             photo: req.body.photoLink,
-            ratings: ratings
+            ratings: req.body.ratings
         };
 
-        //reduce ratings to single value
-        var ratingSum = ratings.reduce((a,b) => a + b, 0);
+        // //reduce ratings to single value
+        // var ratingSum = ratings.reduce((a,b) => a + b, 0);
         
         console.log(newFriendRatings);
         console.log(newFriendData);
-        console.log(ratingSum);
-        //add all rating choices to make single value
-        //compare new user input with all other friend ratings
+        // console.log(ratingSum);
 
+        //compare new user input with all other friend ratings
+        for (var i = 0; i < friends.length; i++) {
+            console.log(friends[i]);
+
+            for (var r = 0; r < newFriendRatings.length; r++) {
+                
+                var difference = Math.abs(friends[i].ratings[r] - newFriendRatings[r]);
+
+                console.log(difference);
+            }
+        }
 
         friends.push(req.body);
 

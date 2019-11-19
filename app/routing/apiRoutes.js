@@ -7,41 +7,60 @@ module.exports = function(app) {
 
     app.post("/api/friends", function(req, res) {
 
-        //get new user input
-        var newFriendRatings = req.body.ratings;
-
-        //function to return each item in the ratings array as an integer
-        var ratings = newFriendRatings.map(function(x) {
+        //get new user input parse/return integer as ratings values
+        var newFriendRatings = req.body.ratings.map(function(x) {
             return parseInt(x, 10);
         });
 
         var newFriendData = {
             name: req.body.name,
             photo: req.body.photoLink,
-            ratings: req.body.ratings
+            ratings: newFriendRatings
         };
-
-        // //reduce ratings to single value
-        // var ratingSum = ratings.reduce((a,b) => a + b, 0);
         
         console.log(newFriendRatings);
         console.log(newFriendData);
-        // console.log(ratingSum);
+
+        var bestMatch = {
+            name: "",
+            photo: "",
+            friendDifference: 50
+        };
 
         //compare new user input with all other friend ratings
         for (var i = 0; i < friends.length; i++) {
             console.log(friends[i]);
 
+            var difference = [];
+
             for (var r = 0; r < newFriendRatings.length; r++) {
                 
-                var difference = Math.abs(friends[i].ratings[r] - newFriendRatings[r]);
+                friendDif = Math.abs(friends[i].ratings[r] - newFriendRatings[r]);
 
-                console.log(difference);
-            }
-        }
+                //push rating differences into an array
+                difference.push(friendDif);
+                
+            };
 
-        friends.push(req.body);
+            console.log(difference);
 
-        res.json({reqBody: req.body});
+            //get total difference value
+            var totalDiff = difference.reduce((a, b) => a + b, 0);
+            console.log(totalDiff);
+            
+            if (totalDiff <= bestMatch.friendDifference) {
+
+                bestMatch.name = friends[i].name;
+                bestMatch.photo = friends[i].imageLink;
+                bestMatch.friendDifference = totalDiff;
+
+                console.log(bestMatch)
+
+            };
+        };
+
+        friends.push(newFriendData);
+
+        res.json(bestMatch);
     });
 };

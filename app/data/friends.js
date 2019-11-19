@@ -30,6 +30,22 @@ var friendsArray = [
             // 2,
             // 3
         ],
+    },
+    {
+        name: "Takkun",
+        imageLink: "https://i.pinimg.com/originals/1b/16/bc/1b16bc67f292b3871a0866b67798f9ba.jpg",
+        ratings: [
+            1,
+            4,
+            // 3,
+            // 1,
+            // 5,
+            // 4,
+            // 1,
+            // 1,
+            // 2,
+            // 3
+        ],
     }
 ];
 

@@ -57,7 +57,6 @@
                 <option value="4">4</option>
                 <option value="5">5 (No interest)</option>
             </select>
-
             <h3>Question 4</h3>
             <h4>Concerts/Festivals</h4>
             <select class="chosen-select" id="q4">
@@ -68,7 +67,6 @@
                 <option value="4">4</option>
                 <option value="5">5 (No interest)</option>
             </select>
-
             <h3>Question 5</h3>
             <h4>Museums</h4>
             <select class="chosen-select" id="q5">
@@ -79,7 +77,6 @@
                 <option value="4">4</option>
                 <option value="5">5 (No interest)</option>
             </select>
-
             <h3>Question 6</h3>
             <h4>Theater/Musicals</h4>
             <select class="chosen-select" id="q6">
@@ -90,7 +87,6 @@
                 <option value="4">4</option>
                 <option value="5">5 (No interest)</option>
             </select>
-
             <h3>Question 7</h3>
             <h4>Trying new restaurants and different types of food</h4>
             <select class="chosen-select" id="q7">
@@ -101,7 +97,6 @@
                 <option value="4">4</option>
                 <option value="5">5 (No interest)</option>
             </select>
-
             <h3>Question 8</h3>
             <h4>Cooking</h4>
             <select class="chosen-select" id="q8">
@@ -112,7 +107,6 @@
                 <option value="4">4</option>
                 <option value="5">5 (No interest)</option>
             </select>
-
             <h3>Question 9</h3>
             <h4>Crafts/Making Art</h4>
             <select class="chosen-select" id="q9">
@@ -123,7 +117,6 @@
                 <option value="4">4</option>
                 <option value="5">5 (No interest)</option>
             </select>
-
             <h3>Question 10</h3>
             <h4>Fitness Classes</h4>
             <select class="chosen-select" id="q10">
@@ -179,29 +172,52 @@
     
         $(".submit").on("click", function(event) {
             event.preventDefault();
-            var newFriend = {
-                name: $("#name").val().trim(),
-                imageLink: $("#photo").val().trim(),
-                ratings: [
-                    $("#q1").val(),
-                    $("#q2").val(),
-                    // $("#q3").val(),
-                    // $("#q4").val(),
-                    // $("#q5").val(),
-                    // $("#q6").val(),
-                    // $("#q7").val(),
-                    // $("#q8").val(),
-                    // $("#q9").val(),
-                    // $("#q10").val()
-                ]
+
+            function validateForm() {
+
+                var isValid = true;
+                $('.form-control').each(function() {
+                    if ($(this).val() === "") {
+                        isValid = false;
+                    }
+                });
+
+                $(".chosen-select").each(function() {
+                    if ($(this).val() === "") {
+                        isValid = false;
+                    };
+                });
+                return isValid;
             };
-            $.post("/api/friends", newFriend, function(data) {
-                $("#match-name").text(data.name);
-                $("#match-img").attr("src", data.photo);
-                $("#results-modal").modal("toggle");
-            });
+
+            if (validateForm()) {
+                var newFriend = {
+                    name: $("#name").val().trim(),
+                    imageLink: $("#photo").val().trim(),
+                    ratings: [
+                        $("#q1").val(),
+                        $("#q2").val(),
+                        // $("#q3").val(),
+                        // $("#q4").val(),
+                        // $("#q5").val(),
+                        // $("#q6").val(),
+                        // $("#q7").val(),
+                        // $("#q8").val(),
+                        // $("#q9").val(),
+                        // $("#q10").val()
+                    ]
+                };
+                $.post("/api/friends", newFriend, function(data) {
+                    $("#match-name").text(data.name);
+                    $("#match-img").attr("src", data.photo);
+                    $("#results-modal").modal("toggle");
+                });
+            } else {
+                alert("Please fill out all fields before submission!");
+            };
         });
     </script>
+
 </body>
 
 </html>

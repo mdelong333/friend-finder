@@ -54,11 +54,10 @@ module.exports = function(app) {
                 bestMatch.photo = friends[i].imageLink;
                 bestMatch.friendDifference = totalDiff;
 
-                console.log(bestMatch)
-
             };
         };
 
+        console.log(bestMatch);
         friends.push(newFriendData);
 
         res.json(bestMatch);

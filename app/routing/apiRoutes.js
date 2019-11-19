@@ -14,7 +14,7 @@ module.exports = function(app) {
 
         var newFriendData = {
             name: req.body.name,
-            photo: req.body.photoLink,
+            photo: req.body.imageLink,
             ratings: newFriendRatings
         };
         

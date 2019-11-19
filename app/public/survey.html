@@ -179,10 +179,9 @@
     
         $(".submit").on("click", function(event) {
             event.preventDefault();
-
             var newFriend = {
                 name: $("#name").val().trim(),
-                photoLink: $("#photo").val().trim(),
+                imageLink: $("#photo").val().trim(),
                 ratings: [
                     $("#q1").val(),
                     $("#q2").val(),
@@ -196,18 +195,12 @@
                     // $("#q10").val()
                 ]
             };
-
-            $.post("/api/friends", newFriendData, function(data) {
-
+            $.post("/api/friends", newFriend, function(data) {
                 $("#match-name").text(data.name);
                 $("#match-img").attr("src", data.photo);
-
                 $("#results-modal").modal("toggle");
-
             });
-
         });
-
     </script>
 </body>
 

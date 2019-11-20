@@ -47,7 +47,7 @@
                 <option value="5">5 (No interest)</option>
             </select>
 
-            <!-- <h3>Question 3</h3>
+            <h3>Question 3</h3>
             <h4>Dancing/Clubs</h4>
             <select class="chosen-select" id="q3">
                 <option value></option>
@@ -126,7 +126,7 @@
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5 (No interest)</option>
-            </select> -->
+            </select>
 
             <br>
             <br>
@@ -193,14 +193,14 @@
                     ratings: [
                         $("#q1").val(),
                         $("#q2").val(),
-                        // $("#q3").val(),
-                        // $("#q4").val(),
-                        // $("#q5").val(),
-                        // $("#q6").val(),
-                        // $("#q7").val(),
-                        // $("#q8").val(),
-                        // $("#q9").val(),
-                        // $("#q10").val()
+                        $("#q3").val(),
+                        $("#q4").val(),
+                        $("#q5").val(),
+                        $("#q6").val(),
+                        $("#q7").val(),
+                        $("#q8").val(),
+                        $("#q9").val(),
+                        $("#q10").val()
                     ]
                 };
                 $.post("/api/friends", newFriend, function(data) {

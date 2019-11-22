@@ -6,21 +6,33 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../css/reset.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    
     <link rel="stylesheet" href="../css/style.css">
     <title>Friend Finder</title>
 </head>
 <body>
-    <div class="container">
-        <div class="jumbotron">
-            <h1>Friend Finder</h1>
-            <hr>
-            <h2>Rate activites to find friends with similar interests!</h2>
-            <br>
-            <a href="/survey" class="btn btn-info btn-lg">Go to Survey</a>
+    <section class="black">
+        <div class="carousel carousel-slider" data-indicators="true">
+            <div class="carousel-fixed-item">
+            <div class="container">
+                <h1 class="white-text">Friend Finder</h1>
+                <hr>
+                <h2 class="white-text">Rate activities to find friends with similar interests!</h2>
+                <a class="btn waves-effect white grey-text darken-text-2" href="/survey">Go to Survey</a>
+            </div>
+            </div>
+            <a class="carousel-item" href="#one!"><img src="./images/concert.jpeg"></a>
+
+            <a class="carousel-item" href="#two!"><img src="./images/hangingout.jpg"></a>
+            
+            <a class="carousel-item" href="#three!"><img src="./images/crafting.jpeg"></a>
+            
+            <a class="carousel-item" href="#four!"><img src="./images/hiking2.jpeg"></a>
         </div>
+    </section>
 
         <footer class="footer">
             <div class="container">
@@ -30,6 +42,11 @@
             </div>
         </footer>
     </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script type="text/javascript" src="./app.js"></script>
 
 </body>
 

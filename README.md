@@ -13,4 +13,4 @@ Friend Finder is a site using Node and Express to connect users with people that
 
 ## Demo
 
-[!demo](./app/public/images/friend-finder.gif)
+![demo](./app/public/images/friend-finder.gif)
